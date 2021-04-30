@@ -1,0 +1,34 @@
+<div class='container'>
+		<h2 style="text-align: center;">Clientes</h2>
+		<div class='tabla'>
+			<form #buscarForm='ngForm' id='form' (ngSubmit)='filtrar(buscarForm)'>
+				<label for='filtro'>Busqueda : </label>
+                <input id ='busqueda'type="search" placeholder="Busqueda" aria-label="Search" name='filtro' #filtro='ngModel' [(ngModel)]='texto' (keyup)='filtrar(buscarForm)'>
+               <input type="submit" value='buscar'>
+            </form>
+			<table class='mostrar'>
+				<tr height='50' class='headerstable'>
+					<th width='130'>Nombre</th>
+					<th width='150'>Apellido paterno</th>
+					<th width='150'>Apellido materno</th>
+					<th width='130'>RFC</th>
+					<th width='80'>Fecha de registro</th>
+					<th width='150'>Opciones</th>
+				</tr>
+			</table>
+			<table class='mostrar' cellspacing="1px" border="black">
+				<tr *ngFor ='let persona of personas_fisicas' class='cliente headerstable' height='50' >
+					<td width='130'>{{persona.nombre}} </td>
+					<td width='150'>{{persona.apellidoPaterno}} </td>
+					<td width='150'>{{persona.apellidoMaterno}}</td>
+					<td width='130'>{{persona.rfc}}</td>
+					<td width='80'>{{persona.fechaRegistro}}</td>
+					<td width='150'>
+						<button [routerLink]="['/editar',persona.idPersonaFisica]">Editar</button>
+						<button (click)="this.Eliminar(persona.idPersonaFisica)">Eliminar</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+</div>

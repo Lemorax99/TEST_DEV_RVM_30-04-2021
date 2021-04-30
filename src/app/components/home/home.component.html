@@ -1,0 +1,21 @@
+
+<table>
+    <tr>
+        <td>Razon social</td>
+        <td>RFC</td>
+        <td>Sucursal</td>
+        <td>IdEmpleado</td>
+        <td>Nombre</td>
+        <td>Apellido paterno</td>
+        <td>Apellido materno</td>
+    </tr>
+    <tr *ngFor='let dat of datos'>
+        <td>{{dat.RazonSocial}}</td>
+        <td>{{dat.RFC}}</td>
+        <td>{{dat.Sucursal}}</td>
+        <td>{{dat.IdEmpleado}}</td>
+        <td>{{dat.Nombre}}</td>
+        <td>{{dat.Paterno}}</td>
+        <td>{{dat.Materno}}</td>
+    </tr>
+</table>

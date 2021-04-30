@@ -1,0 +1,50 @@
+<div class='containers'>
+	<h2>Modificar</h2>
+	<form #personaForm='ngForm' (ngSubmit)='onSubmit(personaForm)'>
+		<p>
+			<label for='name'>Nombre :</label>
+			<input type="text" name='name' #name='ngModel' [(ngModel)]='persona.nombre' required/>
+			<span class='form_error' *ngIf='name.touched && !name.valid'>
+				El nombre es obligatorio
+			</span>
+		</p>
+		<p>
+			<label for='ApePaterno'>Apellido paterno :</label>
+			<input type='text' name='ApePaterno' #ApePaterno='ngModel' [(ngModel)]='persona.apellidoPaterno' required/>
+			<span class='form_error' *ngIf='ApePaterno.touched && !ApePaterno.valid'>
+				Apellido obligatorio
+			</span>
+		</p>
+		<p>
+			<label for='ApeMaterno'>Apellido materno :</label>
+			<input type='text' name='ApeMaterno' #ApeMaterno='ngModel' [(ngModel)]='persona.apellidoMaterno' required/>
+			<span class='form_error' *ngIf='ApeMaterno.touched && !ApeMaterno.valid'>
+				Apellido obligatorio
+			</span>
+		</p>
+		<p>
+			<label for='rfc'>RFC :</label>
+			<input type="text" name='rfc' #rfc='ngModel' [(ngModel)]='persona.rfc' required/>
+			<span class='form_error' *ngIf='rfc.touched && !rfc.valid'>
+				RFC obligatorio
+			</span>
+		</p>
+		<p>
+			<label for='fecha_nacimiento'>Fecha de inicio :</label>
+			<input type='date' name='fecha_nacimiento' #fecha_nacimiento='ngModel' [(ngModel)]='persona.fechaNacimiento' required/>
+			<span class='form_error' *ngIf='fecha_nacimiento.touched && !fecha_nacimiento.valid'>
+				Fecha de nacimiento obligatoria
+			</span>
+		</p>
+		<p>
+			<label for='usurioAgrega'>Usuario que agrega :</label>
+			<input type='number' name='usurioAgrega' #usurioAgrega='ngModel' [(ngModel)]='persona.usuarioAgrega'/>
+			<span class='form_error' *ngIf='usurioAgrega.touched && !usurioAgrega.valid'>
+				Campo obligatorio
+			</span>
+		</p>
+		<p>
+			<input type='submit' value="Actualizar" [disabled]='!personaForm.form.valid'/>
+		</p>
+	</form>
+</div>

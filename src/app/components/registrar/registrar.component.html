@@ -1,0 +1,59 @@
+<div class='containers'>
+
+	<div class='message success' *ngIf='status == "success"'>
+		El Proyecto se a creado correctamente, puedes <a [routerLink]='["/proyecto,save_project._id"]' >verlo aqui</a>
+	</div>
+
+	<div class='message failed' *ngIf='status == "failed"'>
+		El proyecto no se ha podido crear
+	</div>
+
+	<form #personaForm='ngForm' (ngSubmit)='onSubmit(personaForm)'>
+		<h2 >Formulario</h2>
+		<p>
+			<label for='name'>Nombre :</label>
+			<input type="text" name='name' #name='ngModel' [(ngModel)]='persona.Nombre' required/>
+			<span class='form_error' *ngIf='name.touched && !name.valid'>
+				El nombre es obligatorio
+			</span>
+		</p>
+		<p>
+			<label for='ApePaterno'>Apellido paterno :</label>
+			<input type='text' name='ApePaterno' #ApePaterno='ngModel' [(ngModel)]='persona.ApellidoPaterno' required/>
+			<span class='form_error' *ngIf='ApePaterno.touched && !ApePaterno.valid'>
+				Apellido obligatorio
+			</span>
+		</p>
+		<p>
+			<label for='ApeMaterno'>Apellido materno :</label>
+			<input type='text' name='ApeMaterno' #ApeMaterno='ngModel' [(ngModel)]='persona.ApellidoMaterno' required/>
+			<span class='form_error' *ngIf='ApeMaterno.touched && !ApeMaterno.valid'>
+				Apellido obligatorio
+			</span>
+		</p>
+		<p>
+			<label for='rfc'>RFC :</label>
+			<input type="text" name='rfc' #rfc='ngModel' [(ngModel)]='persona.RFC' required/>
+			<span class='form_error' *ngIf='rfc.touched && !rfc.valid'>
+				RFC obligatorio
+			</span>
+		</p>
+		<p>
+			<label for='fecha_nacimiento'>Fecha de inicio :</label>
+			<input type='date' name='fecha_nacimiento' #fecha_nacimiento='ngModel' [(ngModel)]='persona.FechaNacimiento' required/>
+			<span class='form_error' *ngIf='fecha_nacimiento.touched && !fecha_nacimiento.valid'>
+				Fecha de nacimiento obligatoria
+			</span>
+		</p>
+		<p>
+			<label for='usurioAgrega'>Usuario que agrega :</label>
+			<input type='number' name='usurioAgrega' #usurioAgrega='ngModel' [(ngModel)]='persona.UsuarioAgrega'/>
+			<span class='form_error' *ngIf='usurioAgrega.touched && !usurioAgrega.valid'>
+				Campo obligatorio
+			</span>
+		</p>
+		<p>
+			<input type='submit' value="Registrar" [disabled]='!personaForm.form.valid'/>
+		</p>
+	</form>
+</div>
